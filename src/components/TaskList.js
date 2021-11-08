@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Task from "./Task";
 
-function TaskList({tasksData}) {
+function TaskList({tasksData, categories, filteredCategory}) {
   const [tasks, setTasks] = useState(tasksData)
 
   function handleDelete(event) {
     const textToDelete = event.target.parentNode.children[1].innerText
     setTasks(tasks.filter( task => task.text !== textToDelete))
+  }
+
+  if (filteredCategory) {
+    setTasks(
+      tasks.filter( (task) => task["category"] == filteredCategory)
+    )
   }
 
   return (
