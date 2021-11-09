@@ -8,7 +8,7 @@ function NewTaskForm({ onTaskFormSubmit, categories }) {
     e.preventDefault();
     onTaskFormSubmit({ text, category });
     setText("");
-    setCategory("Code");
+    setCategory(category);
   }
 
   return (
